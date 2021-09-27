@@ -1,5 +1,6 @@
 import getType from './getType'
 import random from './getRandom'
+
 /** 1. 데이터 타입 확인 */
 console.log(typeof 'hello world!');
 console.log(typeof 1234);
