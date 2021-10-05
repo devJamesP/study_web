@@ -1,0 +1,84 @@
+[Type of JavaScript vs Type of TypeScript]
+
+Static Types : Set during development
+vs
+Dynamic Types : Resolved at runtime
+
+// JavaScript 
+function add(n1, n2) {
+  if (typeof n1 !== 'number' || typeof n2 !== 'number') {
+    throw new Error('Incorrect input!');
+  }
+  return n1 + n2;
+}
+const result = add(39, 26);
+: 해당 코드는 실행타임에 n1, n2가 number 타입인지 체크 하고
+예외를 던짐.
+Ex)
+// TypeScript
+fun add(n1: number, n2: number) {
+  return n1 + n2;
+}
+const result = add(39, 26);
+: 파라미터 n1, n2를 컴파일 타임에 체크하므로 number타입이 아니면
+Error가 남.
+
+
+[TypeScript에서 프로그램 작성을 위해 기본 제공하는 데이터 타입이 있다.]
+
+사용자가 만든 타입은 결국 해당 기본 자료형들로 쪼개진다.
+당연히 JavaScript 기본 자료형을 포함한다.
+
+* ECMAScript 표준에 따른 기본 자료형
+- Boolean
+- Number
+- String
+- Null
+- Undefined
+- Symbol(added ECMAScript 6)
+- Array : Object형
+
+* 추가적인 타입들
+- Any, Void, Never, Unknown
+- Enum
+- Tuple : Object형
+
+
+[Primitive Type]
+
+* 오브젝트와 레퍼런스 형태가 아닌 실제 값을 메모리에 저장하는 자료형
+* 프리미티브 형의 내장 함수를 사용 가능한것은 자바스크립트 처리 방식 덕분
+* 프리미티브 타입의 값들을 리터럴 값이라고 한다.
+* ES2015 기준 6가지 타입
+- Boolean
+- Number
+- String
+- Undefined
+- Null
+- Symbol(ES2015) 
+
+* Wrapper 객체로도 생성 가능(Java와 비슷하네)
+※ TypeScript에서는 이런식의 래퍼 객체를 사용 권장 하지 않음!!
+new Boolean(false); // typeof new Boolean(false) : Object형
+new String('hello'); // typeof new String('hello') : Object형
+new Number(42); // typeof new Number(42) : Object형
+
+
+[Type Casing]
+* TypeScript의 핵심 Primitive Types는 모두 소문자다.
+* Number, String 또는 Object 유형은 primitives를 나타내지 않고, 
+이러한 타입은 사용해서는 안된다.
+Ex)
+function reverse(s: string): string {
+  return s.split("").reverse().join("");
+}
+reverse("hello world!");
+
+
+
+
+
+
+
+
+
